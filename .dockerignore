@@ -1,0 +1,9 @@
+backend
+gateway
+frontend/node_modules
+node_modules
+.git
+.idea
+.vscode
+*.log
+backend/target

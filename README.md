@@ -1,49 +1,82 @@
 # News Aggregator Project
 
-This project has a Spring Boot backend and a simple frontend.
+News Aggregator is a student news portal with:
 
-## Run Backend
+- Static HTML/CSS/JS frontend in `frontend/`
+- Node.js Express backend in `server/`
+- MongoDB database through Mongoose
+- Render Docker deployment from the repo root
+
+## Local Backend
+
+Create a `.env` file in the project root:
+
+```env
+MONGODB_URI=mongodb+srv://USER:PASSWORD@cluster.mongodb.net/newsdb
+JWT_SECRET=change-this-secret
+ADMIN_EMAIL=admin@example.com
+ADMIN_PASSWORD=admin123
+```
+
+Then run:
 
 ```bash
-cd backend
-mvn spring-boot:run
+npm install
+npm start
 ```
 
-Backend starts at:
+Backend and hosted frontend run at:
 
 ```text
-http://localhost:8080
+http://localhost:8081
 ```
 
-Useful endpoints:
+Health check:
 
-- `POST /api/auth/register`
-- `POST /api/auth/login`
-- `GET /api/articles`
-- `POST /api/articles`
+```text
+http://localhost:8081/api/health
+```
 
-## Run Frontend
+## Local Frontend Only
+
+For the old static frontend server:
+
+```bash
+cd frontend
+npm install
+npm start
+```
 
 Open:
 
 ```text
-frontend/index.html
+http://127.0.0.1:8001/index.html
 ```
 
-Or use VS Code Live Server on port `5500`.
+When opened on port `8001`, the frontend calls the backend at `http://127.0.0.1:8081/api`.
+When deployed on Render, it automatically calls the same Render domain.
 
-## Database
+## Render Deployment
 
-The backend uses H2 in-memory database.
+This repo includes:
 
-H2 console:
+- `Dockerfile`
+- `.dockerignore`
+- `render.yaml`
+
+Render environment variables needed:
 
 ```text
-http://localhost:8080/h2-console
+MONGODB_URI
+JWT_SECRET
+ADMIN_EMAIL
+ADMIN_PASSWORD
 ```
 
-JDBC URL:
+Use the repo root as the deploy root. The Docker service starts with:
 
-```text
-jdbc:h2:mem:newsdb
+```bash
+npm start
 ```
+
+Student articles are saved as `PENDING`. Admins approve/reject from the Admin page. Only `APPROVED` articles appear on the public dashboard.

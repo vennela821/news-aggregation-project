@@ -1,5 +1,6 @@
-const API_HOST = window.location.hostname === '127.0.0.1' ? '127.0.0.1' : 'localhost';
-const API_URL = `http://${API_HOST}:8081/api`;
+const LOCAL_HOSTS = ['127.0.0.1', 'localhost'];
+const isLocalStaticPage = LOCAL_HOSTS.includes(window.location.hostname) && !['8081', '10000'].includes(window.location.port);
+const API_URL = isLocalStaticPage ? `http://${window.location.hostname}:8081/api` : `${window.location.origin}/api`;
 const AUTH_KEYS = ['token', 'name', 'email', 'role'];
 
 const state = {
