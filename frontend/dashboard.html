@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | News Aggregator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="dashboard">
+    <header class="topbar">
+        <div>
+            <p class="eyebrow">Student News Desk</p>
+            <h1>Dashboard</h1>
+            <p id="welcomeText">Welcome back.</p>
+        </div>
+        <nav class="page-nav" aria-label="Primary navigation">
+            <a href="dashboard.html" class="active">Home</a>
+            <a href="profile.html">Profile</a>
+            <a href="admin.html" class="admin-link hidden">Admin</a>
+            <button id="logoutBtn" class="secondary" type="button">Logout</button>
+            <button id="themeBtn" class="secondary" type="button">🌙</button>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="overview-grid" aria-label="Workspace summary">
+            <div id="loader" class="loader hidden"></div>
+            <article class="overview-card">
+                <span>Workspace</span>
+                <strong>Campus News</strong>
+                <p>Browse curated updates and student submissions.</p>
+            </article>
+            <article class="overview-card">
+                <span>Current access</span>
+                <strong id="roleSummary">READER</strong>
+                <p>Permissions update after login and admin changes.</p>
+            </article>
+            <article class="overview-card">
+                <span>Feed status</span>
+                <strong>Live</strong>
+                <p>Articles are fetched directly from the backend API.</p>
+            </article>
+        </section>
+
+        <section class="toolbar" aria-label="Article filters">
+            <input id="search" type="search" placeholder="Search news by title or content">
+            <select id="category" aria-label="Category">
+                <option value="all">All categories</option>
+                <option value="Technology">Technology</option>
+                <option value="Sports">Sports</option>
+                <option value="Education">Education</option>
+                <option value="Business">Business</option>
+                <option value="General">General</option>
+            </select>
+            <button id="refreshBtn" class="secondary" type="button">Refresh</button>
+        </section>
+
+        <section id="articleEditor" class="editor hidden" aria-label="Publish article">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow dark">Publishing desk</p>
+                    <h2>Add Article</h2>
+                </div>
+                <span class="status-pill active">Student/Admin</span>
+            </div>
+            <div class="form-grid">
+                <input id="articleTitle" type="text" placeholder="Article title">
+                <input id="articleCategory" type="text" placeholder="Category">
+                <input id="articleSource" type="text" placeholder="Source">
+                <input id="articleImage" type="url" placeholder="Image URL">
+            </div>
+            <textarea id="articleContent" rows="5" placeholder="Write the article content"></textarea>
+            <button id="addArticleBtn" type="button">Publish Article</button>
+            <p id="articleStatus" class="status-line" aria-live="polite"></p>
+        </section>
+
+        <section id="readerNotice" class="reader-notice hidden">
+            <h2>Reader mode</h2>
+            <p>You can read and search all published news. Admin can upgrade your role to Student for publishing.</p>
+        </section>
+
+        <section class="section-heading feed-heading">
+            <div>
+                <p class="eyebrow dark">Latest updates</p>
+                <h2>News Feed</h2>
+            </div>
+        </section>
+        <section id="articles" class="article-grid" aria-live="polite"></section>
+    </main>
+
+    <script src="app.js?v=20260610-review"></script>
+</body>
+</html>

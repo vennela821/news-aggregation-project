@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | News Aggregator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="admin">
+    <header class="topbar">
+        <div>
+            <p class="eyebrow">Student News Desk</p>
+            <h1>Admin</h1>
+            <p>Manage registered users, roles, and account access.</p>
+        </div>
+        <nav class="page-nav" aria-label="Primary navigation">
+            <a href="dashboard.html">Home</a>
+            <a href="profile.html">Profile</a>
+            <a href="admin.html" class="admin-link active">Admin</a>
+            <button id="logoutBtn" class="secondary" type="button">Logout</button>
+            <button id="themeBtn" class="secondary" type="button">🌙</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="adminStats" class="stats-grid" aria-label="Admin statistics"></section>
+        <div class="admin-panel">
+   <canvas id="adminChart"></canvas>
+</div>
+
+        <section class="admin-panel review-panel">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow dark">Editorial review</p>
+                    <h2>Pending Articles</h2>
+                    <p>Student submissions appear here first. Approve to publish them on the public feed.</p>
+                </div>
+                <button id="refreshPendingBtn" class="secondary" type="button">Refresh</button>
+            </div>
+            <p id="pendingStatus" class="status-line" aria-live="polite"></p>
+            <div id="pendingArticles" class="review-list" aria-live="polite"></div>
+        </section>
+
+        <section class="admin-panel">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow dark">Access control</p>
+                    <h2>User Management</h2>
+                </div>
+                <button id="refreshUsersBtn" class="secondary" type="button">Refresh</button>
+            </div>
+            <p id="adminStatus" class="status-line" aria-live="polite"></p>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTable"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js?v=20260610-review"></script>
+</body>
+</html>

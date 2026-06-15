@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Aggregator | Sign in</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="login">
+    <header class="topbar login-hero">
+        <div>
+            <p class="eyebrow">Student News Desk</p>
+            <h1>News Aggregator</h1>
+            <p>Campus updates, student stories, publishing tools, and access control in one focused workspace.</p>
+        </div>
+        <div class="hero-stat-row" aria-label="Workspace features">
+            <span>Live feed</span>
+            <span>Role access</span>
+            <span>Admin control</span>
+        </div>
+    </header>
+
+    <main class="auth-layout">
+        <section class="intro-panel">
+            <div class="intro-image"></div>
+            <div class="intro-content">
+                <span class="status-pill active">Campus newsroom</span>
+                <h2>Read, publish, and manage news with clean role-based access.</h2>
+                <p>Readers browse articles, students publish updates, and admins manage users from a single dashboard.</p>
+                <div class="role-chips">
+                    <span>Reader</span>
+                    <span>Student</span>
+                    <span>Admin</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="auth-card elevated" aria-labelledby="authTitle">
+            <div>
+                <p class="eyebrow dark">Secure access</p>
+                <h2 id="authTitle">Sign in or create account</h2>
+                <p class="muted">Register first, then use the same email and password to log in.</p>
+            </div>
+            <label>
+                <span>Name</span>
+                <input id="name" type="text" autocomplete="name" placeholder="Enter your name">
+            </label>
+            <label>
+                <span>Email</span>
+                <input id="email" type="email" autocomplete="email" placeholder="name@example.com">
+            </label>
+            <label>
+                <span>Password</span>
+                <input id="password" type="password" autocomplete="current-password" placeholder="Minimum 6 characters">
+            </label>
+            <div class="button-row">
+                <button id="registerBtn" type="button">Register</button>
+                <button id="loginBtn" class="secondary" type="button">Login</button>
+            </div>
+            <p id="authStatus" class="status-line" aria-live="polite"></p>
+        </section>
+    </main>
+
+   <script src="app.js?v=20260610-review"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
